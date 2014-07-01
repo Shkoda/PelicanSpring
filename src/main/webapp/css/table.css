@@ -1,0 +1,79 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 14px/1.4 Arial, serif;
+        }
+
+        #page-wrap {
+            width: 600px;
+            margin: 15px auto;
+            position: relative;
+        }
+
+        p {
+            margin: 0 0 15px 0;
+            font: 14px/1.4 "Courier New", serif;
+        }
+
+        .title{
+            background: #fffcde;
+            padding: 10px;
+        }
+
+        #sidebar ul {
+            background: #eee;
+            padding: 10px;
+        }
+
+        li {
+            margin: 0 0 0 20px;
+        }
+
+        #main {
+            width: 500px;
+            float: left;
+        }
+
+        #sidebar {
+            width: 190px;
+            position: fixed;
+            left: 65%;
+            top: 180px;
+            margin: 0 0 0 110px;
+        }
+
+        table {
+            border-spacing: 0.2rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td {
+
+            text-align: center;
+            font-family: "Arial", Times, serif;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            background: hsl(355, 61%, 58%);;
+        }
+
+        .empty {
+
+           /* border: 0px solid #94a0b4 */
+        }
+
+        .highlight2 {
+            background: hsl(202, 55%, 63%);;
+
+        }
+
+        .highlight3 {
+            background: hsl(123, 53%, 64%);;
+
+        }

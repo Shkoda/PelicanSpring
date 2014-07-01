@@ -1,0 +1,29 @@
+package com.kpi.planner.gantt;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Artem
+ * Date: 5/29/2014 5:28 PM.
+ */
+public class SendTask extends Task {
+
+    public final int from;
+    public final int to;
+    private List<Integer> what = new ArrayList<>();
+    private boolean receiveMode;
+
+    public SendTask(int startTime, int length, int what, int from, int to) {
+        super(startTime, length, 0);
+        this.what.add(what);
+        this.from = from;
+        this.to = to;
+        text = from + " -> " + to + ", " + what;
+    }
+
+    public void exchange(int node) {
+        what.add(node);
+        text = to + " <-> " + from + ", " + what;
+    }
+}

@@ -1,0 +1,87 @@
+svg {
+    background-color: #FFF;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.app-container {
+    width:100%;
+    margin-left: auto ;
+    margin-right: auto ;
+    text-align: center;
+}
+
+
+.node-weight-container {
+    float: left;
+
+    width:120px;
+}
+
+.tasks-container {
+    display: inline-block;
+    margin-left: auto ;
+    margin-right: auto ;
+    width:50%;
+}
+
+
+.link-weight-container {
+    float: right;
+
+    width:160px;
+}
+
+svg:not(.active):not(.ctrl) {
+    cursor: crosshair;
+}
+
+path.link {
+    fill: none;
+    stroke: #263e5d;
+    stroke-width: 8px;
+    cursor: default;
+}
+
+svg:not(.active):not(.ctrl) path.link {
+    cursor: pointer;
+}
+
+path.link.selected {
+    stroke-dasharray: 10,2;
+}
+
+path.link.dragline {
+    pointer-events: none;
+}
+
+path.link.hidden {
+    stroke-width: 0;
+}
+
+circle.node {
+    stroke-width: 2px;
+    cursor: pointer;
+}
+
+circle.node.reflexive {
+    stroke: #000 !important;
+    stroke-width: 2.5px;
+}
+
+text {
+    font: 12px sans-serif;
+    pointer-events: none;
+}
+
+text.weight {
+    font-weight: bold;
+}
+text.id {
+    font: 10px sans-serif;
+    font-weight: bold;
+}

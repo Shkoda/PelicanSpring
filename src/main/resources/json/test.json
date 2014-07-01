@@ -1,0 +1,24 @@
+{"name": "Mommy", "info": "tst", "children": [
+    {
+        "name": "A1"
+    },
+    {
+        "name": "A2"
+    },
+    {
+        "name": "A3",
+        "children": [
+            {
+                "name": "A31",
+                "children": [
+                    {
+                        "name": "A311"
+                    },
+                    {
+                        "name": "A312"
+                    }
+                ]
+            }
+        ]
+    }
+]}

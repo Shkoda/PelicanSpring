@@ -1,0 +1,7 @@
+*.log
+*conflicted copy*
+target*
+*.iml
+.idea*
+*.txt
+*.ser
