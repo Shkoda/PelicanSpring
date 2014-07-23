@@ -48,33 +48,17 @@ var arc = d3.svg.arc()
         return Math.sqrt(d.y + d.dy);
     });
 
-// Use d3.text and d3.csv.parseRows so that we do not need to have a header
-// row, and can receive the csv as an array of arrays.
 
-/*
- d3.text("/tree/get_json")
- .header("Content-type", "application/json")
- .get(function (error, text) {
- var response = JSON.parse(text);
-
- console.log(response);
-
- //JSON object with the data
-
- var json = JSON.parse(response.description);
- */
 d3.text("/circle/get_csv")
     .header("Content-type", "application/json")
     .get(function (error, text) {
-
         var response = JSON.parse(text);
         var body = response.description;
-
         var csv = d3.csv.parseRows(body);
-        var json = buildHierarchy(csv);
+        var json = buildHierarchy_nightingale(csv);
 
         console.log("\nbody : " + body);
-        console.log("\ncsv: " + csv);
+        console.log("\ncsv : " + csv);
         console.log("\njson : " + json);
 
         createVisualization(json);
@@ -126,21 +110,30 @@ function createVisualization(json) {
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.
 function mouseover(d) {
+    console.log("mouseover :: " + d.description);
+//    var percentage = (100 * d.value / totalSize).toPrecision(3);
+//    var percentageString = percentage + "%";
+//    if (percentage < 0.1) {
+//        percentageString = "< 0.1%";
+//    }
+//
+//    d3.select("#percentage")
+//        .text(percentageString);
 
-    var percentage = (100 * d.value / totalSize).toPrecision(3);
-    var percentageString = percentage + "%";
-    if (percentage < 0.1) {
-        percentageString = "< 0.1%";
-    }
+    var testDescription;
+    if (d.description == null)
+        testDescription = (100 * d.value / totalSize).toPrecision(3) + "%";
+    else testDescription = d.description;
 
     d3.select("#percentage")
-        .text(percentageString);
+        .text(testDescription);
+
 
     d3.select("#explanation")
         .style("visibility", "");
 
     var sequenceArray = getAncestors(d);
-    updateBreadcrumbs(sequenceArray, percentageString);
+    updateBreadcrumbs(sequenceArray, testDescription);
 
     // Fade all the segments.
     d3.selectAll("path")
@@ -354,3 +347,74 @@ function buildHierarchy(csv) {
     }
     return root;
 };
+
+
+// Take a 2-column CSV and transform it into a hierarchical structure suitable
+// for a partition layout. The first column is a sequence of step names, from
+// root to leaf, separated by hyphens. The second column is sequence description
+function buildHierarchy_nightingale(csv) {
+    var root = {"name": "root", "children": []};
+    for (var sequenceNumber = 0; sequenceNumber < csv.length; sequenceNumber++) {
+        var sequence = csv[sequenceNumber][0];
+        var description = csv[sequenceNumber][1];
+        var size = +csv[sequenceNumber][2];
+
+
+        var parts = sequence.split("-");
+        var currentNode = root;
+        for (var partNumber = 0; partNumber < parts.length; partNumber++) {
+            var children = currentNode["children"];
+            var partName = parts[partNumber];
+            var childNode;
+            if (partNumber + 1 < parts.length) {
+                // Not yet at the end of the sequence; move down the tree.
+                var foundChild = false;
+                var k;
+                for (k = 0; k < children.length; k++) {
+                    if (children[k]["name"] == partName) {
+                        childNode = children[k];
+                        foundChild = true;
+                        break;
+                    }
+                }
+                // If we don't already have a child node for this branch, create it.
+                if (!foundChild) {
+                    childNode = {"name": partName, "children": []};
+                    children.push(childNode);
+                }
+                currentNode = childNode;
+            } else {
+                // Reached the end of the sequence; create a leaf node.
+                console.log(partName + " --> " + description);
+
+                childNode = {"name": partName, "size": size, "description": description};
+                children.push(childNode);
+            }
+        }
+    }
+    return root;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

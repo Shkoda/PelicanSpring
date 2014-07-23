@@ -26,7 +26,7 @@
     <div id="chart">
         <div id="explanation" style="visibility: hidden;">
             <span id="percentage"></span><br/>
-            of visits begin with this sequence of pages
+            lalala
         </div>
     </div>
 </div>

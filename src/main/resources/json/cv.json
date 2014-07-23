@@ -1,0 +1,36 @@
+{
+    "java": {
+        "java se": {
+            "game server": {
+                "description": "game server description",
+                "size": 100
+            },
+            "build server": {
+                "description": "build description",
+                "size": 200
+            },
+
+            "size": 500,
+            "description": "java se description"
+        },
+        "size": 1000,
+        "description": "java  description"
+    },
+    "guava": {
+        "guava se": {
+            "guava game server": {
+                "description": "guava game server description",
+                "size": 100
+            },
+            "guava server": {
+                "description": " guavabuild description",
+                "size": 200
+            },
+
+            "size": 500,
+            "description": "guava se description"
+        },
+        "size": 1000,
+        "description": "guava  description"
+    }
+}
