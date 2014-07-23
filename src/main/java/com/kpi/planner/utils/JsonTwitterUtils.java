@@ -45,7 +45,7 @@ public class JsonTwitterUtils {
 
         public TwitJSON(String name) {
             this.name = name;
-            this.children = new ArrayList<>();
+            this.children =null;
         }
 
         @Override

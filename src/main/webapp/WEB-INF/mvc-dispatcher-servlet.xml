@@ -17,7 +17,7 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
-    <mvc:view-controller path="/" view-name="tasks"/>
+    <mvc:view-controller path="/" view-name="circle"/>
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

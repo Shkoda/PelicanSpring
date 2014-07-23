@@ -26,7 +26,7 @@ public class TreeController {
         System.out.println("in tree controller");
 
         String name = "ShkodaAleceya";
-        String json = "\"name\":\"mybe smth is wrong\"";
+        String json = "\"name\":\"maybe smth is wrong\"";
 
         Map<String, List<Status>> map = null;
         try {

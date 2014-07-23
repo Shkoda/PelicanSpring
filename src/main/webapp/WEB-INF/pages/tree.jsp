@@ -53,11 +53,6 @@
         font: 10px sans-serif;
     }
 
-    .link {
-        fill: none;
-        stroke: #ccc;
-        stroke-width: 1.5px;
-    }
 
     path.link {
         fill: none;
@@ -71,14 +66,14 @@
 
 <body>
 
-<h2>Testing smth</h2>
+<h2>Pelican Twitter friends are speaking about...</h2>
 
 <div id="viz"></div>
 
 <script type="text/javascript">
 
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
-            width = 960 - margin.right - margin.left,
+            width = 1920 - margin.right - margin.left,
             height = 800 - margin.top - margin.bottom;
 
     var i = 0,
@@ -104,6 +99,7 @@
             .header("Content-type", "application/json")
             .get(function (error, text) {
                 var response = JSON.parse(text);
+
                 console.log(response);
 
                 //JSON object with the data

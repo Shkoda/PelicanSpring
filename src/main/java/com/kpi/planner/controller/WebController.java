@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class WebController {
 
+    @RequestMapping(value = {"/circle", "/"}, method = RequestMethod.GET)
+    public String circlePage(ModelMap model) {
+        model.addAttribute("message", "Hello circle!");
+        return "circle";
+    }
+
+
     @RequestMapping(value = {"/tasks"}, method = RequestMethod.GET)
 	public String tasksPage(ModelMap model) {
 		model.addAttribute("message", "Hello world!");
@@ -34,7 +41,7 @@ public class WebController {
         return "gantt";
     }
 
-    @RequestMapping(value = {"/tree", "/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/tree"}, method = RequestMethod.GET)
     public String treePage(){
         System.out.println("in WebController.treePage");
         return "tree";

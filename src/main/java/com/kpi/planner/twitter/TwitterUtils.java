@@ -41,7 +41,8 @@ public class TwitterUtils {
                                 }
 
                             });
-                } catch (Exception ignored) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

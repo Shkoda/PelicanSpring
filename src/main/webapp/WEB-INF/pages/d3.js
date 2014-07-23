@@ -1962,6 +1962,7 @@
       });
     };
     dsv.parseRows = function(text, f) {
+        console.log("d3.js:1965 parse rows")
       var EOL = {}, EOF = {}, rows = [], N = text.length, I = 0, n = 0, t, eol;
       function token() {
         if (I >= N) return EOF;

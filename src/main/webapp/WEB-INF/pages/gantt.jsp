@@ -58,17 +58,6 @@
 
 <div class="container">
 
-    <!-- <div class="starter-template">
-      <h1>Bootstrap starter template</h1>
-
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
-
-
-    </div>                         -->
-    <!--<p><a class="btn btn-primary btn-lg" role="button" onclick="check()">Learn more &raquo;</a>
-        <a class="btn btn-primary btn-lg" role="button" >Save</a></p> -->
-
     <div id="app-container" class="app-container">
         <div id="tasks" class="tasks-container">
             <p></p>
@@ -78,44 +67,6 @@
         <div id="img_tasks"></div>
         <div id="img_system"></div>
 
-        <!--<table border="1">
-            <tr>
-                <th width="19">1</th>
-                <th width="19">2</th>
-                <th width="19">3</th>
-                <th width="19">4</th>
-                <th width="19">5</th>
-                <th width="19">6</th>
-                <th width="19">7</th>
-                <th width="19">8</th>
-                <th width="19">9</th>
-                <th width="19">10</th>
-                <th width="19">11</th>
-                <th width="19">12</th>
-                <th width="19">13</th>
-                <th width="19">14</th>
-            </tr>
-            <tr>
-                <td width="15" colspan="3">.</td>
-                <td width="15">.</td>
-            </tr>
-            <tr>
-                <td>.</td>
-                <td>.</td>
-            </tr>
-            <tr>
-                <td>.</td>
-                <td>.</td>
-            </tr>
-            <tr>
-                <td>.</td>
-                <td>.</td>
-            </tr>
-            <tr>
-                <td>.</td>
-                <td>.</td>
-            </tr>
-        </table>   -->
     </div>
 
     <div class="modal fade" id="generateModal">
