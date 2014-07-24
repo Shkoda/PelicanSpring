@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Sequences sunburst</title>
+    <title>Sequences sunburst ^_^</title>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
@@ -34,6 +34,7 @@
     <div class="alert alert-success alert-dismissable" id="alert-ok-block">
         <span id="ok-description"></span>
     </div>
+
 
 </div>
 
