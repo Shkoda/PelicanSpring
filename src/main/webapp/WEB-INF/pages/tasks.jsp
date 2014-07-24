@@ -33,7 +33,7 @@
 <body>
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="debug_area">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="debug_area">
 
     <!-- <div class="starter-template">
       <h1>Bootstrap starter template</h1>

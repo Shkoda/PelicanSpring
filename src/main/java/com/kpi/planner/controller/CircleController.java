@@ -24,8 +24,9 @@ public class CircleController {
 
 
         try {
-            InputStream stream = CircleController.class.getResourceAsStream("/csv/sequence_text");
+//            InputStream stream = CircleController.class.getResourceAsStream("/json/cv2.json");
 
+            InputStream stream = CircleController.class.getResourceAsStream("/csv/sequence_text");
             StringWriter writer = new StringWriter();
 
             IOUtils.copy(stream, writer);

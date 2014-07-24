@@ -1,0 +1,437 @@
+{"name": "root", "children": [
+    {
+        "name": "account",
+        "children": [
+            {
+                "name": "account",
+                "children": [
+                    {
+                        "name": "account",
+                        "children": [
+                            {
+                                "name": "account",
+                                "children": [
+                                    {
+                                        "name": "account",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 22781,
+                                                "description": "stub7497"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 3311,
+                                                "description": "stub4575"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 906,
+                                                "description": "stub9318"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 1156,
+                                                "description": "stub8656"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 5969,
+                                                "description": "stub7394"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 692,
+                                                "description": "stub6731"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "end",
+                                        "size": 7059,
+                                        "description": "stub1174"
+                                    },
+                                    {
+                                        "name": "home",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 396,
+                                                "description": "stub9912"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 316,
+                                                "description": "stub1952"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 226,
+                                                "description": "stub5194"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 87,
+                                                "description": "stub4532"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 613,
+                                                "description": "stub2669"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 245,
+                                                "description": "stub1106"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "other",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 446,
+                                                "description": "stub5549"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 229,
+                                                "description": "stub4887"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 91,
+                                                "description": "stub3924"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 804,
+                                                "description": "stub1670"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 776,
+                                                "description": "stub708"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 48,
+                                                "description": "stub346"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "product",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 3892,
+                                                "description": "stub1186"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 3250,
+                                                "description": "stub9923"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 531,
+                                                "description": "stub9862"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 252,
+                                                "description": "stub8299"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 4876,
+                                                "description": "stub6436"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 476,
+                                                "description": "stub9978"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "search",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 521,
+                                                "description": "stub7514"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 39,
+                                                "description": "stub7452"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 7,
+                                                "description": "stub2196"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 8,
+                                                "description": "stub933"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 536,
+                                                "description": "stub7869"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 219,
+                                                "description": "stub510"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "end",
+                                "size": 14262,
+                                "description": "stub8346"
+                            },
+                            {
+                                "name": "home",
+                                "children": [
+                                    {
+                                        "name": "account",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 434,
+                                                "description": "stub4591"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 83,
+                                                "description": "stub2127"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 71,
+                                                "description": "stub8762"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 39,
+                                                "description": "stub7199"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 159,
+                                                "description": "stub4135"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 24,
+                                                "description": "stub9479"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "end",
+                                        "size": 722,
+                                        "description": "stub6414"
+                                    },
+                                    {
+                                        "name": "home",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 103,
+                                                "description": "stub2750"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 64,
+                                                "description": "stub3799"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 76,
+                                                "description": "stub5268"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 57,
+                                                "description": "stub1932"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 116,
+                                                "description": "stub4693"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 47,
+                                                "description": "stub2138"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "other",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 32,
+                                                "description": "stub8593"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 13,
+                                                "description": "stub543"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 21,
+                                                "description": "stub7178"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 93,
+                                                "description": "stub6126"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 33,
+                                                "description": "stub3362"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 6,
+                                                "description": "stub9396"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "product",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 252,
+                                                "description": "stub4830"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 304,
+                                                "description": "stub3868"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 258,
+                                                "description": "stub9302"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 25,
+                                                "description": "stub6839"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 573,
+                                                "description": "stub6987"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 69,
+                                                "description": "stub5724"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "search",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 119,
+                                                "description": "stub4762"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 20,
+                                                "description": "stub797"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 13,
+                                                "description": "stub435"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 1,
+                                                "description": "stub7971"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 276,
+                                                "description": "stub3405"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 103,
+                                                "description": "stub8539"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "other",
+                                "children": [
+                                    {
+                                        "name": "account",
+                                        "children": [
+                                            {
+                                                "name": "account",
+                                                "size": 486,
+                                                "description": "stub1180"
+                                            },
+                                            {
+                                                "name": "end",
+                                                "size": 99,
+                                                "description": "stub1929"
+                                            },
+                                            {
+                                                "name": "home",
+                                                "size": 28,
+                                                "description": "stub9976"
+                                            },
+                                            {
+                                                "name": "other",
+                                                "size": 130,
+                                                "description": "stub3518"
+                                            },
+                                            {
+                                                "name": "product",
+                                                "size": 172,
+                                                "description": "stub9252"
+                                            },
+                                            {
+                                                "name": "search",
+                                                "size": 31,
+                                                "description": "stub4386"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "end",
+                                        "size": 636,
+                                        "description": "stub9220"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]}

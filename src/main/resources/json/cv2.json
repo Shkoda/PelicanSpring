@@ -1,0 +1,10 @@
+{"name": "root",
+    "children": [
+        {
+            "name": "java",
+            "size": 500,
+            "description": "java  description"
+        }
+    ]
+
+}

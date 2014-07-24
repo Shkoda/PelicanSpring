@@ -8,15 +8,7 @@ var b = {
     w: 75, h: 30, s: 3, t: 10
 };
 
-// Mapping of step names to colors.
-var colors = {
-    "home": "#5687d1",
-    "product": "#7b615c",
-    "search": "#de783b",
-    "account": "#6ab975",
-    "other": "#a173d1",
-    "end": "#bbbbbb"
-};
+var colors = d3.scale.category20();
 
 // Total size of all segments; we set this later, after loading the data.
 var totalSize = 0;
@@ -56,11 +48,17 @@ d3.text("/circle/get_csv")
         var body = response.description;
         var csv = d3.csv.parseRows(body);
         var json = buildHierarchy_nightingale(csv);
+//
+//        $("#ok-description")
+//            .html("<strong>Yehoooooo! </strong>" + response.description);
+//        $("#alert-ok-block").slideDown(400);
 
-        console.log("\nbody : " + body);
-        console.log("\ncsv : " + csv);
-        console.log("\njson : " + json);
+        console.log("json" + json);
+//                              $("#alert-error-block").slideUp(400);  console.log("\nbody : " + body);
+        //    console.log("\ncsv : " + csv);
+        //   console.log("\njson : " + json);
 
+//        createVisualization(json);
         createVisualization(json);
     });
 
@@ -85,6 +83,8 @@ function createVisualization(json) {
             return (d.dx > 0.005); // 0.005 radians = 0.29 degrees
         });
 
+//    console.log("nodes :: "+nodes);
+
     var path = vis.data([json]).selectAll("path")
         .data(nodes)
         .enter().append("svg:path")
@@ -94,7 +94,7 @@ function createVisualization(json) {
         .attr("d", arc)
         .attr("fill-rule", "evenodd")
         .style("fill", function (d) {
-            return colors[d.name];
+            return colors(d.name);
         })
         .style("opacity", 1)
         .on("mouseover", mouseover);
@@ -103,6 +103,9 @@ function createVisualization(json) {
     d3.select("#container").on("mouseleave", mouseleave);
 
     // Get total size of the tree = value of root node from partition.
+    console.log("path :: " + path);
+    console.log("path.node :: " + path.node);
+
     totalSize = path.node().__data__.value;
 
     console.log("visualization is done")
@@ -110,7 +113,7 @@ function createVisualization(json) {
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.
 function mouseover(d) {
-    console.log("mouseover :: " + d.description);
+//    console.log("mouseover :: " + d.description);
 //    var percentage = (100 * d.value / totalSize).toPrecision(3);
 //    var percentageString = percentage + "%";
 //    if (percentage < 0.1) {
@@ -224,7 +227,7 @@ function updateBreadcrumbs(nodeArray, percentageString) {
     entering.append("svg:polygon")
         .attr("points", breadcrumbPoints)
         .style("fill", function (d) {
-            return colors[d.name];
+            return colors(d.name);
         });
 
     entering.append("svg:text")
@@ -385,7 +388,7 @@ function buildHierarchy_nightingale(csv) {
                 currentNode = childNode;
             } else {
                 // Reached the end of the sequence; create a leaf node.
-                console.log(partName + " --> " + description);
+//                console.log(partName + " --> " + description);
 
                 childNode = {"name": partName, "size": size, "description": description};
                 children.push(childNode);

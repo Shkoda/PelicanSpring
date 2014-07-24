@@ -32,7 +32,7 @@
 <body>
 <h2>Test me!</h2>
 
-<div class="container">
+<div class="debug_area">
 
     <div class="alert alert-success alert-dismissable" id="alert-ok-block">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

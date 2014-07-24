@@ -733,24 +733,24 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.container {
+.debug_area {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
 @media (min-width: 768px) {
-  .container {
+  .debug_area {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container {
+  .debug_area {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .container {
+  .debug_area {
     width: 1170px;
   }
 }
@@ -3689,17 +3689,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     padding-left: 0;
   }
 }
-.container > .navbar-header,
+.debug_area > .navbar-header,
 .container-fluid > .navbar-header,
-.container > .navbar-collapse,
+.debug_area > .navbar-collapse,
 .container-fluid > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px;
 }
 @media (min-width: 768px) {
-  .container > .navbar-header,
+  .debug_area > .navbar-header,
   .container-fluid > .navbar-header,
-  .container > .navbar-collapse,
+  .debug_area > .navbar-collapse,
   .container-fluid > .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
@@ -3748,7 +3748,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
 }
 @media (min-width: 768px) {
-  .navbar > .container .navbar-brand,
+  .navbar > .debug_area .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
   }
@@ -4379,10 +4379,10 @@ a.list-group-item.active > .badge,
   font-size: 21px;
   font-weight: 200;
 }
-.container .jumbotron {
+.debug_area .jumbotron {
   border-radius: 6px;
 }
-.jumbotron .container {
+.jumbotron .debug_area {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
@@ -4390,7 +4390,7 @@ a.list-group-item.active > .badge,
     padding-top: 48px;
     padding-bottom: 48px;
   }
-  .container .jumbotron {
+  .debug_area .jumbotron {
     padding-right: 60px;
     padding-left: 60px;
   }
@@ -5591,8 +5591,8 @@ button.close {
 }
 .clearfix:before,
 .clearfix:after,
-.container:before,
-.container:after,
+.debug_area:before,
+.debug_area:after,
 .container-fluid:before,
 .container-fluid:after,
 .row:before,
@@ -5621,7 +5621,7 @@ button.close {
   content: " ";
 }
 .clearfix:after,
-.container:after,
+.debug_area:after,
 .container-fluid:after,
 .row:after,
 .form-horizontal .form-group:after,
