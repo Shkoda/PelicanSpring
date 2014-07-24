@@ -31,7 +31,7 @@ public class TreeController {
         Map<String, List<Status>> map = null;
         try {
             map = TwitterUtils.getHashTagMap(name);
-            json = JsonTwitterUtils.toJSON(name, map);
+            json = JsonTwitterUtils.toJSONString(name, map);
 
         } catch (TwitterException e) {
             e.printStackTrace();

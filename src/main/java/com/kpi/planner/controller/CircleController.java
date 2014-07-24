@@ -22,24 +22,20 @@ public class CircleController {
     public Response testing() {
         System.out.println("in circle controller");
 
-
         try {
-//            InputStream stream = CircleController.class.getResourceAsStream("/json/cv2.json");
-
-            InputStream stream = CircleController.class.getResourceAsStream("/csv/sequence_text");
+            InputStream stream = CircleController.class.getResourceAsStream("/json/generated.json");
             StringWriter writer = new StringWriter();
 
             IOUtils.copy(stream, writer);
             String csv = writer.toString();
-//            csv = csv.replaceAll("\r", "");
 
             System.out.println(csv);
 
             return new Response(Response.Status.OK, csv);
         } catch (IOException e) {
             e.printStackTrace();
+            return new Response(Response.Status.ERROR, "epic fail :: " + e);
         }
-
-        return new Response(Response.Status.ERROR, "epic fail");
     }
+
 }

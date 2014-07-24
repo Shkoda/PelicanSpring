@@ -89,12 +89,12 @@
             .get(function (error, text) {
 
                 var response = JSON.parse(text);
-                var body = response.description;
-                var csv = d3.csv.parseRows(body);
-                var json = buildHierarchy_nightingale(csv);
+//                var body = response.description;
+//                var csv = d3.csv.parseRows(body);
+//                var json = buildHierarchy_nightingale(csv);
 
                 $("#ok-description")
-                        .html("<strong>Yehoooooo! </strong>" + JSON.stringify(json));
+                        .html("<strong>Yehoooooo! </strong>" + response.description);
                 $("#alert-ok-block").slideDown(400);
 
 

@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * Created by Nightingale on 04.07.2014.
  */
 public class JsonTwitterUtils {
-    public static String toJSON(String rootUser, Map<String, List<Status>> tagMap) {
+    public static String toJSONString(String rootUser, Map<String, List<Status>> tagMap) {
         List<TwitJSON> children = tagMap.entrySet()
                 .parallelStream()
                 .map(TwitJSON::new)

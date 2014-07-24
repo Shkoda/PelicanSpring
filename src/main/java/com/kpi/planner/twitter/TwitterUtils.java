@@ -56,6 +56,6 @@ public class TwitterUtils {
         System.out.println(map);
 
 
-        System.out.println(JsonTwitterUtils.toJSON(name, map));
+        System.out.println(JsonTwitterUtils.toJSONString(name, map));
     }
 }
