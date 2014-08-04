@@ -9,7 +9,8 @@ var b = {
 };
 
 // make `colors` an ordinal scale
-var colors = d3.scale.category20();
+var colors = d3.scale.ordinal()
+    .range(["#5687d1", "#7b615c", "#de783b", "#6ab975", "#a173d1", "#bbbbbb"]);
 
 // Total size of all segments; we set this later, after loading the data.
 var totalSize = 0;
@@ -52,9 +53,6 @@ d3.text("/circle/get_csv")
     });
 
 
-
-var uniqueNames;
-
 // Main function to draw and set up the visualization, once we have the data.
 function createVisualization(json) {
 // Basic setup of page elements.
@@ -77,7 +75,7 @@ function createVisualization(json) {
     var uniqueNames = (function (a) {
         var output = [];
         a.forEach(function (d) {
-            if (output.indexOf(d.name) === -1 && d.name!= "") {
+            if (output.indexOf(d.name) === -1 && d.name != "") {
                 output.push(d.name);
             }
         });
@@ -89,7 +87,6 @@ function createVisualization(json) {
 
     // make sure this is done after setting the domain
     drawLegend();
-
 
     var path = vis.data([json]).selectAll("path")
         .data(nodes)
@@ -112,18 +109,18 @@ function createVisualization(json) {
     totalSize = path.node().__data__.value;
 }
 
+//region mouse events
 // Fade all but the current sequence, and show it in the breadcrumb trail.
 function mouseover(d) {
 
     var elementName = d.name;
+    var elementDescription = d.description;
 
-    var elementDescription;
+    if (elementName == null)
+        elementName = "";
+    if (elementDescription == null)
+        elementDescription = "";
 
-    if (d.description == null)
-        elementDescription = (100 * d.value / totalSize).toPrecision(3) + "%";
-    else elementDescription = d.description;
-
-//    console.log(elementName+" :: "+elementDescription);
 
     d3.select("#element_name")
         .text(elementName);
@@ -172,6 +169,8 @@ function mouseleave(d) {
         .style("visibility", "hidden");
 }
 
+//endregion
+
 // Given a node in a partition layout, return an array of all of its ancestor
 // nodes, highest first, but excluding the root.
 function getAncestors(node) {
@@ -211,13 +210,13 @@ function breadcrumbPoints(d, i) {
 }
 
 // Update the breadcrumb trail to show the current sequence and percentage.
-function updateBreadcrumbs(nodeArray, percentageString) {
+function updateBreadcrumbs(nodeArray, elementDescription) {
 
     // Data join; key function combines name and depth (= position in sequence).
     var g = d3.select("#trail")
         .selectAll("g")
         .data(nodeArray, function (d) {
-            return d.name + d.depth;
+            return d.name +  d.depth ;
         });
 
     // Add breadcrumb and label for entering nodes.
@@ -248,11 +247,11 @@ function updateBreadcrumbs(nodeArray, percentageString) {
 
     // Now move and update the percentage at the end.
     d3.select("#trail").select("#endlabel")
-        .attr("x", (nodeArray.length + 0.5) * (b.w + b.s))
+        .attr("x", (nodeArray.length +0.2) * (b.w + b.s))
         .attr("y", b.h / 2)
         .attr("dy", "0.35em")
-        .attr("text-anchor", "middle")
-        .text(percentageString);
+//        .attr("text-anchor", "middle")
+        .text(elementDescription);
 
     // Make the breadcrumb trail visible, if it's hidden.
     d3.select("#trail")
@@ -260,6 +259,8 @@ function updateBreadcrumbs(nodeArray, percentageString) {
 
 }
 
+
+//region legend
 function drawLegend() {
 
     // Dimensions of legend item: width, height, spacing, radius of rounded rect.
@@ -304,6 +305,8 @@ function toggleLegend() {
         legend.style("visibility", "hidden");
     }
 }
+
+//endregion
 
 
 
