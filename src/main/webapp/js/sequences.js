@@ -77,7 +77,7 @@ function createVisualization(json) {
     var uniqueNames = (function (a) {
         var output = [];
         a.forEach(function (d) {
-            if (output.indexOf(d.name) === -1) {
+            if (output.indexOf(d.name) === -1 && d.name!= "") {
                 output.push(d.name);
             }
         });
