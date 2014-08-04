@@ -40,7 +40,7 @@ body {
     stroke: #fff;
 }
 
-#explanation {
+#sunburst_text_area {
     position: absolute;
     top: 260px;
     left: 305px;
@@ -50,6 +50,6 @@ body {
     z-index: -1;
 }
 
-#percentage {
+#element_name {
     font-size: 2.5em;
 }

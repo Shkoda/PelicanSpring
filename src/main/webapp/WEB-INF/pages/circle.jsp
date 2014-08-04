@@ -26,7 +26,7 @@
 
 </head>
 <body>
-<h2>Playing with sunburst...</h2>
+<h2>Playing with sunburst</h2>
 
 
 <div class="debug_area">
@@ -39,15 +39,17 @@
 <div id="main">
     <div id="sequence"></div>
     <div id="chart">
-        <div id="explanation" style="visibility: hidden;">
-            <span id="percentage"></span><br/>
-            lalala
+        <div id="sunburst_text_area" style="visibility: hidden;">
+            <span id="element_name"></span><br/>
+            <span id="element_description"></span><br/>
+            <%--there can be static text--%>
         </div>
     </div>
 </div>
 
 <div id="sidebar">
     <input type="checkbox" id="togglelegend"> Legend<br/>
+
     <div id="legend" style="visibility: hidden;"></div>
 </div>
 

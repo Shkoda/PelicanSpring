@@ -23,7 +23,7 @@ public class CircleController {
         System.out.println("in circle controller");
 
         try {
-            InputStream stream = CircleController.class.getResourceAsStream("/json/generated.json");
+            InputStream stream = CircleController.class.getResourceAsStream("/json/cv.json");
             StringWriter writer = new StringWriter();
 
             IOUtils.copy(stream, writer);

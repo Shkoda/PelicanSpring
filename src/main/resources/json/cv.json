@@ -2,47 +2,39 @@
     "children": [
         {
             "name": "java",
+            "size": 900,
+            "description": "java experience",
             "children": [
                 {
                     "name": "java se",
-                    "children": [],
-                    "description": "game server description",
-                    "size": 100
+                    "description": "java se experience",
+                    "size": 600
                 },
                 {
                     "name": "build server",
-                    "children": [],
-                    "description": "build description",
-                    "size": 200
+                    "description": "build  experience",
+                    "size": 300
                 }
-            ],
-
-            "size": 500,
-            "description": "java  description"
+            ]
         },
 
         {
-            "name": "guava",
+            "name": "sql",
+            "size": 700,
+            "description": "sql experience",
             "children": [
                 {
-                    "name": "guava se",
-                    "children": [],
-                    "description": "guava server description",
+                    "name": "postgres",
+                    "description": "postgres experience",
                     "size": 300
                 },
                 {
-                    "name": "guava server",
-                    "children": [],
-                    "description": "guava description",
+                    "name": "mysql",
+                    "description": "mysql experience",
                     "size": 400
                 }
-            ],
-
-            "size": 800,
-            "description": "java  description"
+            ]
         }
-    ],
-    "size": 1000,
-    "description": "guava  description"
+    ]
 
 }

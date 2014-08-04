@@ -44,6 +44,7 @@ var arc = d3.svg.arc()
 d3.text("/circle/get_csv")
     .header("Content-type", "application/json")
     .get(function (error, text) {
+        console.log("i'm here");
         var response = JSON.parse(text);
         var json = JSON.parse(response.description);
         createVisualization(json);
@@ -51,8 +52,6 @@ d3.text("/circle/get_csv")
 
 // Main function to draw and set up the visualization, once we have the data.
 function createVisualization(json) {
-
-    console.log("creating visualization... ")
     // Basic setup of page elements.
     initializeBreadcrumbTrail();
     drawLegend();
@@ -70,7 +69,7 @@ function createVisualization(json) {
             return (d.dx > 0.005); // 0.005 radians = 0.29 degrees
         });
 
-    console.log("nodes :: "+nodes);
+    console.log("nodes :: " + nodes);
 
     var path = vis.data([json]).selectAll("path")
         .data(nodes)
@@ -90,40 +89,33 @@ function createVisualization(json) {
     d3.select("#container").on("mouseleave", mouseleave);
 
     // Get total size of the tree = value of root node from partition.
-    console.log("path :: " + path);
-    console.log("path.node :: " + path.node);
-
     totalSize = path.node().__data__.value;
-
-    console.log("visualization is done")
-};
+}
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.
 function mouseover(d) {
-//    console.log("mouseover :: " + d.description);
-//    var percentage = (100 * d.value / totalSize).toPrecision(3);
-//    var percentageString = percentage + "%";
-//    if (percentage < 0.1) {
-//        percentageString = "< 0.1%";
-//    }
-//
-//    d3.select("#percentage")
-//        .text(percentageString);
 
-    var testDescription;
+    var elementName = d.name;
+
+    var elementDescription;
+
     if (d.description == null)
-        testDescription = (100 * d.value / totalSize).toPrecision(3) + "%";
-    else testDescription = d.description;
+        elementDescription = (100 * d.value / totalSize).toPrecision(3) + "%";
+    else elementDescription = d.description;
 
-    d3.select("#percentage")
-        .text(testDescription);
+    console.log(elementName+" :: "+elementDescription);
 
+    d3.select("#element_name")
+        .text(elementName);
+    d3.select("#element_description")
+        .text(elementDescription);
 
-    d3.select("#explanation")
+    d3.select("#sunburst_text_area")
+//        .text(elementDescription)
         .style("visibility", "");
 
     var sequenceArray = getAncestors(d);
-    updateBreadcrumbs(sequenceArray, testDescription);
+    updateBreadcrumbs(sequenceArray, elementDescription);
 
     // Fade all the segments.
     d3.selectAll("path")
@@ -293,101 +285,6 @@ function toggleLegend() {
         legend.style("visibility", "hidden");
     }
 }
-//
-//// Take a 2-column CSV and transform it into a hierarchical structure suitable
-//// for a partition layout. The first column is a sequence of step names, from
-//// root to leaf, separated by hyphens. The second column is a count of how
-//// often that sequence occurred.
-//function buildHierarchy(csv) {
-//    var root = {"name": "root", "children": []};
-//    for (var i = 0; i < csv.length; i++) {
-//        var sequence = csv[i][0];
-//        var size = +csv[i][1];
-//        if (isNaN(size)) { // e.g. if this is a header row
-//            continue;
-//        }
-//        var parts = sequence.split("-");
-//        var currentNode = root;
-//        for (var j = 0; j < parts.length; j++) {
-//            var children = currentNode["children"];
-//            var nodeName = parts[j];
-//            var childNode;
-//            if (j + 1 < parts.length) {
-//                // Not yet at the end of the sequence; move down the tree.
-//                var foundChild = false;
-//                for (var k = 0; k < children.length; k++) {
-//                    if (children[k]["name"] == nodeName) {
-//                        childNode = children[k];
-//                        foundChild = true;
-//                        break;
-//                    }
-//                }
-//                // If we don't already have a child node for this branch, create it.
-//                if (!foundChild) {
-//                    childNode = {"name": nodeName, "children": []};
-//                    children.push(childNode);
-//                }
-//                currentNode = childNode;
-//            } else {
-//                // Reached the end of the sequence; create a leaf node.
-//                childNode = {"name": nodeName, "size": size};
-//                children.push(childNode);
-//            }
-//        }
-//    }
-//    return root;
-//};
-//
-//
-//// Take a 2-column CSV and transform it into a hierarchical structure suitable
-//// for a partition layout. The first column is a sequence of step names, from
-//// root to leaf, separated by hyphens. The second column is sequence description
-//function buildHierarchy_nightingale(csv) {
-//    var root = {"name": "root", "children": []};
-//    for (var sequenceNumber = 0; sequenceNumber < csv.length; sequenceNumber++) {
-//        var sequence = csv[sequenceNumber][0];
-//        var description = csv[sequenceNumber][1];
-//        var size = +csv[sequenceNumber][2];
-//
-//
-//        var parts = sequence.split("-");
-//        var currentNode = root;
-//        for (var partNumber = 0; partNumber < parts.length; partNumber++) {
-//            var children = currentNode["children"];
-//            var partName = parts[partNumber];
-//            var childNode;
-//            if (partNumber + 1 < parts.length) {
-//                // Not yet at the end of the sequence; move down the tree.
-//                var foundChild = false;
-//                var k;
-//                for (k = 0; k < children.length; k++) {
-//                    if (children[k]["name"] == partName) {
-//                        childNode = children[k];
-//                        foundChild = true;
-//                        break;
-//                    }
-//                }
-//                // If we don't already have a child node for this branch, create it.
-//                if (!foundChild) {
-//                    childNode = {"name": partName, "children": []};
-//                    children.push(childNode);
-//                }
-//                currentNode = childNode;
-//            } else {
-//                // Reached the end of the sequence; create a leaf node.
-////                console.log(partName + " --> " + description);
-//
-//                childNode = {"name": partName, "size": size, "description": description};
-//                children.push(childNode);
-//            }
-//        }
-//    }
-//    return root;
-//};
-//
-//
-
-
 
 
 
