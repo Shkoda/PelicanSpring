@@ -28,6 +28,11 @@ public class WebController {
         return "example";
     }
 
+    @RequestMapping(value = {"/t"}, method = RequestMethod.GET)
+    public String testCircle(ModelMap model){
+        return "tcircle";
+    }
+
 
     @RequestMapping(value = "/system", method = RequestMethod.GET)
     public String systemPage(ModelMap model) {

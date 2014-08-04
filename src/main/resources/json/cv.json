@@ -2,7 +2,7 @@
     "children": [
         {
             "name": "java",
-            "size": 900,
+
             "description": "java experience",
             "children": [
                 {
@@ -20,7 +20,7 @@
 
         {
             "name": "sql",
-            "size": 700,
+
             "description": "sql experience",
             "children": [
                 {

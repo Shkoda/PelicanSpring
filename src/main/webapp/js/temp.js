@@ -1,6 +1,9 @@
+/**
+ * Created by Nightingale on 04.08.2014.
+ */
 // Dimensions of sunburst.
-var width = 750;
-var height = 600;
+var width = 550;
+var height = 550;
 var radius = Math.min(width, height) / 2;
 
 // Breadcrumb dimensions: width, height, spacing, width of tip/tail.
@@ -13,7 +16,6 @@ var colors = d3.scale.category20();
 
 // Total size of all segments; we set this later, after loading the data.
 var totalSize = 0;
-
 
 var vis = d3.select("#chart").append("svg:svg")
     .attr("width", width)
@@ -42,22 +44,19 @@ var arc = d3.svg.arc()
         return Math.sqrt(d.y + d.dy);
     });
 
-d3.text("/circle/get_csv")
-    .header("Content-type", "application/json")
-    .get(function (error, text) {
-        console.log("i'm here");
-        var response = JSON.parse(text);
-        var json = JSON.parse(response.description);
-        createVisualization(json);
-    });
+// Use d3.csv.parseRows so that we do not need to have a header
+// row, and can receive the csv as an array of arrays.
 
-
-
-var uniqueNames;
+//var text = getText();
+//var csv = d3.csv.parseRows(text);
+//var json = buildHierarchy(csv);
+var json = getData();
+createVisualization(json);
 
 // Main function to draw and set up the visualization, once we have the data.
 function createVisualization(json) {
-// Basic setup of page elements.
+
+    // Basic setup of page elements.
     initializeBreadcrumbTrail();
 
     d3.select("#togglelegend").on("click", toggleLegend);
@@ -110,32 +109,25 @@ function createVisualization(json) {
 
     // Get total size of the tree = value of root node from partition.
     totalSize = path.node().__data__.value;
-}
+};
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.
 function mouseover(d) {
 
-    var elementName = d.name;
+    var percentage = (100 * d.value / totalSize).toPrecision(3);
+    var percentageString = percentage + "%";
+    if (percentage < 0.1) {
+        percentageString = "< 0.1%";
+    }
 
-    var elementDescription;
+    d3.select("#percentage")
+        .text(percentageString);
 
-    if (d.description == null)
-        elementDescription = (100 * d.value / totalSize).toPrecision(3) + "%";
-    else elementDescription = d.description;
-
-//    console.log(elementName+" :: "+elementDescription);
-
-    d3.select("#element_name")
-        .text(elementName);
-    d3.select("#element_description")
-        .text(elementDescription);
-
-    d3.select("#sunburst_text_area")
-//        .text(elementDescription)
+    d3.select("#explanation")
         .style("visibility", "");
 
     var sequenceArray = getAncestors(d);
-    updateBreadcrumbs(sequenceArray, elementDescription);
+    updateBreadcrumbs(sequenceArray, percentageString);
 
     // Fade all the segments.
     d3.selectAll("path")
@@ -169,6 +161,8 @@ function mouseleave(d) {
         });
 
     d3.select("#explanation")
+        .transition()
+        .duration(1000)
         .style("visibility", "hidden");
 }
 
@@ -296,6 +290,7 @@ function drawLegend() {
             return d;
         });
 }
+
 function toggleLegend() {
     var legend = d3.select("#legend");
     if (legend.style("visibility") == "hidden") {
@@ -305,20 +300,118 @@ function toggleLegend() {
     }
 }
 
+// Take a 2-column CSV and transform it into a hierarchical structure suitable
+// for a partition layout. The first column is a sequence of step names, from
+// root to leaf, separated by hyphens. The second column is a count of how
+// often that sequence occurred.
+function buildHierarchy(csv) {
+    var root = {"name": "root", "children": []};
+    for (var i = 0; i < csv.length; i++) {
+        var sequence = csv[i][0];
+        var size = +csv[i][1];
+        if (isNaN(size)) { // e.g. if this is a header row
+            continue;
+        }
+        var parts = sequence.split("-");
+        var currentNode = root;
+        for (var j = 0; j < parts.length; j++) {
+            var children = currentNode["children"];
+            var nodeName = parts[j];
+            var childNode;
+            if (j + 1 < parts.length) {
+                // Not yet at the end of the sequence; move down the tree.
+                var foundChild = false;
+                for (var k = 0; k < children.length; k++) {
+                    if (children[k]["name"] == nodeName) {
+                        childNode = children[k];
+                        foundChild = true;
+                        break;
+                    }
+                }
+                // If we don't already have a child node for this branch, create it.
+                if (!foundChild) {
+                    childNode = {"name": nodeName, "children": []};
+                    children.push(childNode);
+                }
+                currentNode = childNode;
+            } else {
+                // Reached the end of the sequence; create a leaf node.
+                childNode = {"name": nodeName, "size": size};
+                children.push(childNode);
+            }
+        }
+    }
+    return root;
+};
 
+function getData() {
+    return {
+        "name": "ref",
+        "children": [
+            {
+                "name": "june11",
+                "children": [
+                    {
+                        "name": "atts",
+                        "children": [
+                            {"name": "early", "size": 11},
+                            {"name": "jcp", "size": 40},
+                            {"name": "jcpaft", "size": 50},
+                            {"name": "stillon", "size": 195},
+                            {"name": "jo",
 
+                                "children": [
+                                    {"name": "early", "size": 100},
+                                    {"name": "jcp", "size": 67},
+                                    {"name": "jcpaft", "size": 110},
+                                    {"name": "stillon", "size": 154},
 
+                                    {"name": "sus1",
+                                        "children": [
+                                            {"name": "early", "size": 11},
+                                            {"name": "jcp", "size": 118},
+                                            {"name": "jcpaft", "size": 39},
+                                            {"name": "stillon", "size": 2779}
+                                        ]
+                                    },
 
+                                    {"name": "sus5",
+                                        "children": [
+                                            {"name": "early", "size": 0},
+                                            {"name": "jcp", "size": 64},
+                                            {"name": "jcpaft", "size": 410},
+                                            {"name": "stillon", "size": 82}
+                                        ]
+                                    },
 
+                                    {"name": "sus9",
+                                        "children": [
+                                            {"name": "early", "size": 1018},
+                                            {"name": "jcp", "size": 3458},
+                                            {"name": "jcpaft", "size": 106},
+                                            {"name": "stillon", "size": 243}
+                                        ]
+                                    },
 
+                                    {"name": "sus13",
+                                        "children": [
+                                            {"name": "early", "size": 110},
+                                            {"name": "jcp", "size": 190},
+                                            {"name": "jcpaft", "size": 80},
+                                            {"name": "stillon", "size": 9190},
+                                            {"name": "allsus", "size": 3970}
+                                        ]
+                                    }
 
+                                ]
+                            }
+                        ]
+                    },
 
+                    {"name": "noatt", "size": 30}
+                ]
+            }
 
-
-
-
-
-
-
-
-
+        ]
+    };
+};
